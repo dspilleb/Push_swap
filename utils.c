@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 11:13:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 13:32:23 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:21:35 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,42 @@ void	ft_putstr_fd(char *s, int fd)
 			write(fd, &s[i], 1);
 }
 
-void	print_nodes(t_node *last)
+void	print_nodes(t_data *data)
 {
-	t_node	*node;
+	t_node	*node_a;
+	t_node	*node_b;
 
-	node = last->next;
-	while (node != last)
+	node_a = data->stack_a;
+	node_b = data->stack_b;
+	printf("command\n");
+	while (node_a || node_b)
 	{
-		printf("%d ", node->value);
-		node = node->next;
+		if (node_a)
+		{
+			printf("%d ", node_a->value);
+			node_a = node_a->next;
+		}
+		if (node_b)
+		{
+			printf("%d", node_b->value);
+			node_b = node_b->next;
+		}
+		printf("\n");
 	}
-	printf("%d", node->value);
+	printf("_ _\n");
+	printf("a b\n");
 }
 
-void	free_nodes(t_node *last)
+void	free_nodes(t_node *node)
 {
-	t_node	*node;
+	t_node	*next;
 
-	if (!last)
-		return ;
-	node = last->next;
-	while (node != last)
+	while (node)
 	{
+		next = node->next;
 		free(node);
-		node = node->next;
+		node = next;
 	}
-	free(node);
 }
 
 void	failure_exit(t_data *data)

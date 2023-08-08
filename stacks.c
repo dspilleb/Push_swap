@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:14:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 13:38:25 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/08 15:02:16 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,21 @@ void	init_stacks(int ac, char **av, t_data *data)
 
 	i = 0;
 	data->stack_a = NULL;
+	data->stack_b = NULL;
+	node = NULL;
 	while (av[++i])
-		data->stack_a = node_append(data, data->stack_a, ft_atoi(av[i]));
+	{
+		if (!node)
+		{
+			data->stack_a = init_node(data, ft_atoi(av[i]));
+			node = data->stack_a;
+		}
+		else
+		{
+			node_append(data, node, ft_atoi(av[i]));
+			node = node->next;
+		}
+	}
 }
 
 t_node	*init_node(t_data *data, int val)
@@ -31,32 +44,16 @@ t_node	*init_node(t_data *data, int val)
 	node->next = NULL;
 	node->prev = NULL;
 	node->value = val;
+	return (node);
 }
 
-t_node	*node_append(t_data *data, t_node *last, int val)
+void	node_append(t_data *data, t_node *node, int val)
 {
 	t_node	*append;
 
-	if (!last)
-		return (init_empty_list(data, last, val));
+	if (!node)
+		return ;
 	append = init_node(data, val);
-	append->prev = last;
-	append->next = last->next;
-	last->next = append;
-	last = append;
-	return (last);
-}
-
-
-t_node	*init_empty_list(t_data *data, t_node *last, int val)
-{
-	t_node	*node;
-
-	if (last)
-		return (last);
-	last = malloc(sizeof(struct node));
-	last->next = last;
-	last->prev = NULL;
-	last->value = val;
-	return (last);
+	append->prev = node;
+	node->next = append;
 }
