@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC_C = main.c parsing.c utils.c stacks.c
+SRC_C = main.c parsing.c utils.c stacks.c small_sort.c
 SRC_DIR = 
 SRC = $(addprefix $(SRC_DIR), $(SRC_C))
 
