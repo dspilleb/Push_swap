@@ -1,18 +1,18 @@
 NAME = push_swap
 
-SRC_C = main.c parsing.c
+SRC_C = main.c parsing.c utils.c stacks.c
 SRC_DIR = 
 SRC = $(addprefix $(SRC_DIR), $(SRC_C))
 
-
-LIBFT_A = libft.a
-LIBFT_DIR = ./My_Libft/
-LIBFT = $(addprefix $(LIBFT_DIR), $(LIBFT_A))
+OPERATIONS_C = operation1.c operation2.c
+OPERATIONS_DIR = ./operations/
+OPERATIONS_SRC = $(addprefix $(OPERATIONS_DIR), $(OPERATIONS_C))
 
 FLAGS = #-Wall -Wextra -Werror
 INCLUDE = #-fsanitize=address -g
 
-OBJ = *.o
+OBJ_DIR = ./objects/
+OBJ = $(addprefix $(OBJ_DIR), $(SRC_C:.c=.o)) $(addprefix $(OBJ_DIR), $(OPERATIONS_C:.c=.o))
 
 GREEN='\033[32m'
 LIGHT_BLUE='\033[1;36m'
@@ -22,27 +22,22 @@ BLUE='\033[0;34m'
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@echo $(LIGHT_BLUE)"- Compiling LIBFT -"$(NONE)
-	@make -C $(LIBFT_DIR)
 	@gcc $(FLAGS) $(OBJ) $(LIBFT) $(INCLUDE) -o $(NAME)
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
-$(OBJ): $(SRC)
-	@gcc $(FLAGS) -c $(SRC)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@gcc $(FLAGS) -c $< -o $@
 
-push_clean:
-	@echo $(BLUE)"- cleaning Push_Swap -"$(NONE)
-	@rm -rf $(OBJ)
+$(OBJ_DIR)%.o: $(OPERATIONS_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@gcc $(FLAGS) -c $< -o $@
 
 clean:
-	@echo $(BLUE)"- cleaning Push_Swap -"$(NONE)
-	@rm -rf $(OBJ)
-	@echo $(LIGHT_BLUE)"cleaning LIBFT -"$(NONE)
-	@make -C $(LIBFT_DIR) clean
+	@echo $(BLUE)"- Cleaning Push_Swap -"$(NONE)
+	@rm -rf $(OBJ_DIR)
 
-fclean: push_clean
-	@rm -rf $(NAME)
-	@echo $(LIGHT_BLUE)"- cleaning LIBFT -"$(NONE)
-	@make -C $(LIBFT_DIR) fclean
+fclean: clean
+	@rm -f $(NAME)
 
 re: fclean all
