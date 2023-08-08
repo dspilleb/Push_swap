@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 11:13:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 15:21:35 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:11:25 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	print_nodes(t_data *data)
 			printf("%d ", node_a->value);
 			node_a = node_a->next;
 		}
+		else
+			printf("  ");
 		if (node_b)
 		{
 			printf("%d", node_b->value);

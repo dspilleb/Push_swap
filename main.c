@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:22 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 15:22:23 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/08 16:52:28 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,16 @@ int	main(int ac, char **av)
 	check_all_args(ac, av, &data);
 	init_stacks(ac, av, &data);
 	print_nodes(&data);
-	pa(&data);
-	print_nodes(&data);
+	while (data.stack_a != NULL)
+	{
+		pb(&data);
+		print_nodes(&data);
+	}
+	while (data.stack_b != NULL)
+	{
+		pa(&data);
+		print_nodes(&data);
+	}
 	free_nodes(data.stack_a);
 	return (0);
 }
