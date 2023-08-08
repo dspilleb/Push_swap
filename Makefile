@@ -4,7 +4,7 @@ SRC_C = main.c parsing.c utils.c stacks.c
 SRC_DIR = 
 SRC = $(addprefix $(SRC_DIR), $(SRC_C))
 
-OPERATIONS_C = operation1.c operation2.c
+OPERATIONS_C = operation1.c operation2.c operation3.c
 OPERATIONS_DIR = ./operations/
 OPERATIONS_SRC = $(addprefix $(OPERATIONS_DIR), $(OPERATIONS_C))
 

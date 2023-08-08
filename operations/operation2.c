@@ -6,40 +6,80 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:31:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 16:50:47 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/08 18:14:44 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_data *data)
+void	ra(t_data *data)
 {
-	t_node	*push;
+	t_node	*node;
+	t_node	*first;
 
-	if (!data->stack_b)
+	if (!data->stack_a || !data->stack_a->next)
 		return ;
-	push = data->stack_b;
-	data->stack_b = data->stack_b->next;
-	if (data->stack_b)
-		data->stack_b->prev = NULL;
-	if (data->stack_a)
-		data->stack_a->prev = push;
-	push->next = data->stack_a;
-	data->stack_a = push;
+	first = data->stack_a;
+	data->stack_a = data->stack_a->next;
+	data->stack_a->prev = NULL;
+	node = first;
+	while (node->next)
+		node = node->next;
+	node->next = first;
+	node = first->prev;
+	first->next = NULL; 
 }
 
-void	pb(t_data *data)
+void	rb(t_data *data)
 {
-	t_node	*push;
+	t_node	*node;
+	t_node	*first;
 
-	if (!data->stack_a)
+	if (!data->stack_b || !data->stack_b->next)
 		return ;
-	push = data->stack_a;
-	data->stack_a = data->stack_a->next;
-	if (data->stack_a)
-		data->stack_a->prev = NULL;
-	if (data->stack_b)
-		data->stack_b->prev = push;
-	push->next = data->stack_b;
-	data->stack_b = push;
+	first = data->stack_b;
+	data->stack_b = data->stack_b->next;
+	data->stack_b->prev = NULL;
+	node = first;
+	while (node->next)
+		node = node->next;
+	node->next = first;
+	node = first->prev;
+	first->next = NULL; 
+}
+
+void	rr(t_data *data)
+{
+	ra(data);
+	rb(data);
+}
+
+void	rra(t_data *data)
+{
+	t_node	*node;
+
+	if (!data->stack_a || !data->stack_a->next)
+		return ;
+	node = data->stack_a->next;
+	while (node->next)
+		node = node->next;
+	node->prev->next = NULL;
+	node->next = data->stack_a;
+	data->stack_a->prev = node;
+	data->stack_a = node;
+}
+
+void	rrb(t_data *data)
+{
+	t_node	*node;
+
+	if (!data->stack_b || !data->stack_b->next)
+		return ;
+	node = data->stack_b->next;
+	while (node->next)
+		node = node->next;
+	node->prev->next = NULL;
+	node->next = data->stack_b;
+	data->stack_b->prev = node;
+	data->stack_b = node;
 }
