@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:22:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 19:07:40 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 09:24:07 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,39 @@ void	sort_two(t_data *data)
 		sa(data);
 }
 
+
+
+void	test_sort(t_data *data)
+{
+	t_node	*stop;
+	t_node	*node;
+	int		i;
+	int		value;
+	unsigned char byte;
+
+	i = 0;
+	while (i < 32)
+	{
+		node = data->stack_a;
+		stop = NULL;
+		while (node && node->next && stop != node)
+		{
+			value = node->value;
+			byte = value >> (i) & 1;
+			printf("value %d, byte %u i = %d\n", value, byte, i);
+			if (byte == 0)
+				pb(data);
+			else
+			{
+				if (!stop)
+					stop = node;
+				ra(data);
+			}
+			node = data->stack_a;
+		}
+		while (data->stack_b)
+			pa(data);
+		print_nodes(data);
+		i ++;
+	}
+}

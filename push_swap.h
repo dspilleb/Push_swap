@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:01:28 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 18:43:21 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:07:13 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include <unistd.h>
 # include "errno.h"
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct node {
 	int			value;
+	int			rank;
 	struct node	*prev;
 	struct node	*next;
 }	t_node;
@@ -59,4 +61,6 @@ void	rrr(t_data *data);
 
 void	sort_three(t_data *data);
 void	sort_two(t_data *data);
+
+void	test_sort(t_data *data);
 #endif
