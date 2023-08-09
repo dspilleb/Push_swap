@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:22:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/09 09:24:07 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:23:24 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,8 @@ void	test_sort(t_data *data)
 		stop = NULL;
 		while (node && node->next && stop != node)
 		{
-			value = node->value;
+			value = node->rank;
 			byte = value >> (i) & 1;
-			printf("value %d, byte %u i = %d\n", value, byte, i);
 			if (byte == 0)
 				pb(data);
 			else
@@ -83,7 +82,6 @@ void	test_sort(t_data *data)
 		}
 		while (data->stack_b)
 			pa(data);
-		print_nodes(data);
 		i ++;
 	}
 }
