@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:22:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/10 11:05:09 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/10 21:41:11 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ void	sort_five(t_data *data)
 	if (data->stack_b->rank == 0)
 		pa(data);
 	else if (data->stack_b->rank == 1)
-	{
-		pa(data);
-		sa(data);
-	}
+		psa(data);
 	else if (data->stack_b->rank == 2)
 	{
 		ra(data);
@@ -69,10 +66,7 @@ void	sort_five(t_data *data)
 		ra(data);
 	}
 	else
-	{
-		pa(data);
-		ra(data);
-	}
+		pra(data);
 }
 
 void	sort_four(t_data *data)
@@ -94,11 +88,14 @@ void	sort_four(t_data *data)
 	if (pos == 0)
 		pa(data);
 	else if (pos == 1)
-	{
-		pa(data);
-		sa(data);
-	}
-	else if (pos == 2)
+		psa(data);
+	else
+		sort_four2(data, pos);
+}
+
+void	sort_four2(t_data *data, int pos)
+{
+	if (pos == 2)
 	{			
 		rra(data);
 		pa(data);
@@ -106,18 +103,14 @@ void	sort_four(t_data *data)
 		ra(data);
 	}
 	else
-	{
-		pa(data);
-		ra(data);
-	}
+		pra(data);
 }
+
 void	radix_sort(t_data *data)
 {
 	t_node	*stop;
 	t_node	*node;
 	int		i;
-	int		value;
-	unsigned char byte;
 
 	i = 0;
 	while (!is_sorted(data))
@@ -126,9 +119,7 @@ void	radix_sort(t_data *data)
 		stop = NULL;
 		while (node && node->next && stop != node)
 		{
-			value = node->rank;
-			byte = value >> (i) & 1;
-			if (byte == 0)
+			if ((node->rank >> (i) & 1) == 0)
 				pb(data);
 			else
 			{

@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:25:58 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/10 10:37:51 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/10 14:58:08 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sa(t_data *data)
 {
-	t_node	*node; 
+	t_node	*node;
 	int		tmp;
 	int		tmp2;
 
@@ -32,7 +32,7 @@ void	sa(t_data *data)
 
 void	sb(t_data *data)
 {
-	t_node	*node; 
+	t_node	*node;
 	int		tmp;
 	int		tmp2;
 

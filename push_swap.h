@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:01:28 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/09 21:50:48 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/10 21:23:04 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,13 @@ void	rra(t_data *data);
 void	rrb(t_data *data);
 //operations 3
 void	rrr(t_data *data);
+void	psa(t_data *data);
+void	pra(t_data *data);
 
-//sort 1
+//sort
 void	sort_three(t_data *data);
 void	radix_sort(t_data *data);
 void	sort_five(t_data *data);
 void	sort_four(t_data *data);
+void	sort_four2(t_data *data, int pos);
 #endif

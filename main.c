@@ -6,11 +6,28 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:22 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/09 22:43:00 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/10 21:41:33 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	choose_sort(t_data *data, int ac)
+{
+	if (ac == 3)
+	{
+		if (data->stack_a->rank > data->stack_a->next->rank)
+			sa(data);
+	}
+	else if (ac == 4)
+		sort_three(data);
+	else if (ac == 5)
+		sort_four(data);
+	else if (ac == 6)
+		sort_five(data);
+	else
+		radix_sort(data);
+}
 
 int	main(int ac, char **av)
 {
@@ -23,14 +40,7 @@ int	main(int ac, char **av)
 	check_all_args(ac, av, &data);
 	init_stacks(ac, av, &data);
 	rank_stack(&data);
-	if (ac == 4)
-		sort_three(&data);
-	else if (ac == 5)
-		sort_four(&data);
-	else if (ac == 6)
-		sort_five(&data);
-	else
-		radix_sort(&data);
+	choose_sort(&data, ac);
 	free_nodes(data.stack_a);
 	return (0);
 }
