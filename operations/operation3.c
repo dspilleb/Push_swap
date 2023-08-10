@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 16:59:40 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 18:16:41 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:15:32 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	rrr(t_data *data)
 {
 	rra(data);
 	rrb(data);
+	ft_putstr_fd("rrr\n", 1);
 }
