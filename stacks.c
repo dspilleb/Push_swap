@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:14:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/09 11:15:16 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:19:23 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_node	*find_min(t_data *data)
 	node = data->stack_a;
 	while (node)
 	{
-		if (node->value < min && node->rank == -1)
+		if (node->value <= min && node->rank == -1)
 		{
 			min = node->value;
 			ret = node;
@@ -99,4 +99,20 @@ void	rank_stack(t_data *data)
 			count++;
 		}
 	}
+}
+
+int	is_sorted(t_data *data)
+{
+	t_node	*node;
+	int		ret;
+
+	ret = 1;
+	node = data->stack_a;
+	while (node->next)
+	{
+		if (node->rank > node->next->rank)
+			ret = 0;
+		node = node->next;
+	}
+	return (ret);
 }

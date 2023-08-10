@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 11:13:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/08 18:45:44 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:31:21 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	free_nodes(t_node *node)
 
 void	failure_exit(t_data *data)
 {
-	//free_nodes(data->stack_a);
-	//free_nodes(data->stack_b);
+	free_nodes(data->stack_a);
+	free_nodes(data->stack_b);
 	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
