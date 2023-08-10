@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:31:20 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/10 10:21:05 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/10 23:04:46 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ra(t_data *data)
 	while (node->next)
 		node = node->next;
 	node->next = first;
-	node->next->prev = node; 
+	node->next->prev = node;
 	first->next = NULL;
 	ft_putstr_fd("ra\n", 1);
 }
@@ -45,7 +45,7 @@ void	rb(t_data *data)
 	while (node->next)
 		node = node->next;
 	node->next = first;
-	node->next->prev = node; 
+	node->next->prev = node;
 	first->next = NULL;
 	ft_putstr_fd("rb\n", 1);
 }
