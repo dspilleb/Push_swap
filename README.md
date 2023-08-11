@@ -14,9 +14,7 @@
 
 >The Push swap project is a very simple and a highly straightforward algorithm project:
 <p align="center">
-  <blockquote>
-    <em>data must be sorted.</em>
-  </blockquote>
+    <b><em>data must be sorted.</em></b>
 </p>
 
 ## 💻 To use the program 
@@ -32,8 +30,8 @@ make all
 ./push_swap nb1 nb2 nb3 nbn...
 ```
 
-<h2> Error handling </h2>
-<h3> These lines should produce an Error :</h>
+## ❌ Error handling | Parsing
+<h3> These lines should produce an Error :</h3>
 <p> <ul>
 <li> arguments aren’t integers.
 <li> some arguments are bigger/smaller than an integer.
@@ -43,7 +41,7 @@ make all
 ## ❔ How it works ?
 <h3>We have 2 stacks named a and b.</h3>
 <h4>At the beginning stack b is empty and stack a contains the number given as arguments</h4>
-<br>
+
 <h3>Here are the operations we can execute :</h3>
 
 | instructions  | Description   |
@@ -59,8 +57,10 @@ make all
 | rra           | rotates stuck A down by one |
 | rrb           | rotates stuck B down by one |
 | rrr           | rotates both A and B down by one |
-
-<p>I decided to implement the stack as a double-linked list and I use radix sorting, which works with the binary of the digits. First I set a rank for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. Then I compare each bit and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.<p>
+<br>
+<p>I decided to implement the stack as a double-linked list and I use ```radix sorting```, which works with the binary of the digits. 
+First I set a rank for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. 
+Then I compare each bit and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.<p>
 ------------
 
 ## 🎯 Goal
