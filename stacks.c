@@ -6,13 +6,13 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:14:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/10 14:39:02 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:06:06 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stacks(int ac, char **av, t_data *data)
+void	init_stacks(char **av, t_data *data)
 {
 	t_node	*node;
 	int		i;
@@ -41,6 +41,8 @@ t_node	*init_node(t_data *data, int val)
 	t_node	*node;
 
 	node = malloc(sizeof(struct node));
+	if (!node)
+		failure_exit(data);
 	node->next = NULL;
 	node->prev = NULL;
 	node->value = val;

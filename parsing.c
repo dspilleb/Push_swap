@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:34:29 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/10 23:03:53 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/11 01:46:54 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ int	is_equal(char *s1, char *s2)
 	int	i;
 
 	i = 0;
+	if ((s1[0] == '-' && s1[1] == '0' && s2[0] == '0') || \
+	(s2[0] == '-' && s2[1] == '0' && s1[0] == '0'))
+		return (0);
 	while (s1[i] && s1[i] == s2[i])
 		i++;
 	return (s1[i] - s2[i]);
@@ -33,7 +36,7 @@ int	only_int(char **av)
 		i = -1;
 		while (av[j][++i])
 		{
-			if (!(av[j][i] >= '0' && av[j][i] <= '9' || av[j][i] == '-'))
+			if (!((av[j][i] >= '0' && av[j][i] <= '9') || av[j][i] == '-'))
 				return (EXIT_FAILURE);
 			if (av[j][i] == '-' && (i != 0 || !av[j][i + 1]))
 				return (EXIT_FAILURE);
@@ -85,12 +88,12 @@ int	ft_atoi(const char *nptr)
 	return (number * sign);
 }
 
-void	check_all_args(int ac, char **av, t_data *data)
+void	check_all_args(char **av, t_data *data)
 {
 	int	i;
 
 	i = 0;
-	if (only_int(av) || no_duplicate(av))
+	if (only_int(av) || no_duplicate(av) != 0)
 		failure_exit(data);
 	while (av[++i] && errno == 0)
 		ft_atoi(av[i]);

@@ -8,7 +8,7 @@ OPERATIONS_C = operation1.c operation2.c operation3.c
 OPERATIONS_DIR = ./operations/
 OPERATIONS_SRC = $(addprefix $(OPERATIONS_DIR), $(OPERATIONS_C))
 
-FLAGS = #-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 INCLUDE = #-fsanitize=address -g
 
 OBJ_DIR = ./objects/
