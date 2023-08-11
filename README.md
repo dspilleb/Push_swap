@@ -17,6 +17,10 @@
     <b><em>data must be sorted.</em></b>
 </p>
 
+## 🎯 Goal
+<h4>The goal is to sort the stack in an ascending order with the lowest possible number of operations.</h4>
+
+------------
 ## 💻 To use the program 
 <h3>you must first compile it with the makefile by using the command 'make' in the shell</h3>
 
@@ -29,7 +33,7 @@ make all
 ```bash
 ./push_swap nb1 nb2 nb3 nbn...
 ```
-
+------------
 ## ❌ Error handling | Parsing
 <h3> These lines should produce an Error :</h3>
 <p> <ul>
@@ -38,6 +42,7 @@ make all
 <li> there are duplicates.
 </ul> </p>
 
+------------
 ## ❔ How it works ?
 <h3>We have 2 stacks named a and b.</h3>
 
@@ -60,12 +65,7 @@ make all
 <br>
 
 I decided to implement the stack as a **double-linked** list and I use **radix sorting**, which works with the **binary** of the digits. 
+<br />
 First I set a **rank** for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. 
+<br />
 Then I compare each **bit** and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.
-
-------------
-
-## 🎯 Goal
-<h3>The goal is to sort the stack in an ascending order with the lowest possible number of operations.</h3>
-
-------------
