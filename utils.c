@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 11:13:00 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/11 11:05:58 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:18:29 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,5 @@ void	failure_exit(t_data *data)
 	free_nodes(data->stack_a);
 	free_nodes(data->stack_b);
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

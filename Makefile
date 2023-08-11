@@ -14,10 +14,10 @@ INCLUDE = #-fsanitize=address -g
 OBJ_DIR = ./objects/
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_C:.c=.o)) $(addprefix $(OBJ_DIR), $(OPERATIONS_C:.c=.o))
 
-GREEN='\033[32m'
+GREEN='\033[1;32m'
 LIGHT_BLUE='\033[1;36m'
 NONE='\033[0m'
-BLUE='\033[0;34m'
+BLUE='\033[1;34m'
 
 all: $(NAME)
 
@@ -41,3 +41,5 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
