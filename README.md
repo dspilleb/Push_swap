@@ -17,8 +17,7 @@
     <b><em>data must be sorted.</em></b>
 </p>
 
-## 🎯 Goal
-<h4>The goal is to sort the stack in an ascending order with the lowest possible number of operations.</h4>
+<h4>🎯 The goal is to sort the stack in an ascending order with the lowest possible number of operations.</h4>
 
 ------------
 ## 💻 To use the program 
