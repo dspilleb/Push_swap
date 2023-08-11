@@ -58,6 +58,7 @@ make all
 | rrb           | rotates stuck B down by one |
 | rrr           | rotates both A and B down by one |
 <br>
+
 I decided to implement the stack as a **double-linked** list and I use **radix sorting**, which works with the **binary** of the digits. 
 First I set a **rank** for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. 
 Then I compare each **bit** and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.
