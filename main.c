@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:22 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/11 11:24:35 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:32:27 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	choose_sort(t_data *data, int ac)
 {
-	if (ac == 3)
+	if (ac == 2)
+		return ;
+	else if (ac == 3)
 	{
 		if (data->stack_a->rank > data->stack_a->next->rank)
 			sa(data);
