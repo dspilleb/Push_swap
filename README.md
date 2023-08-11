@@ -40,11 +40,11 @@ make all
 
 ## ❔ How it works ?
 <h3>We have 2 stacks named a and b.</h3>
-<h4>At the beginning stack b is empty and stack a contains the number given as arguments</h4>
 
+>At the beginning stack b is empty and stack a contains the number given as arguments
 <h3>Here are the operations we can execute :</h3>
 
-| instructions  | Description   |
+| Operations  | Description   |
 |:-------------:|---------------|
 | sa            | swap first two elements of stack A |
 | sb            | swap first two elements of stack B |
@@ -58,13 +58,13 @@ make all
 | rrb           | rotates stuck B down by one |
 | rrr           | rotates both A and B down by one |
 <br>
-<p>I decided to implement the stack as a double-linked list and I use ```radix sorting```, which works with the binary of the digits. 
-First I set a rank for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. 
-Then I compare each bit and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.<p>
+I decided to implement the stack as a **double-linked** list and I use **radix sorting**, which works with the **binary** of the digits. 
+First I set a **rank** for each number I have to sort, making the smallest number rank 0, which makes me work only with positive values. 
+Then I compare each **bit** and decide whether to move it to stack b or not, repeating this operation until the stack A is sorted.
+
 ------------
 
 ## 🎯 Goal
 <h3>The goal is to sort the stack in an ascending order with the lowest possible number of operations.</h3>
-<h4>Space used and comparaisons are not taken into account</4>
 
 ------------
