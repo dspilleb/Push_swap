@@ -6,7 +6,7 @@
 /*   By: dspilleb <dspilleb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 17:00:22 by dspilleb          #+#    #+#             */
-/*   Updated: 2023/08/11 11:32:27 by dspilleb         ###   ########.fr       */
+/*   Updated: 2023/09/18 09:53:36 by dspilleb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	errno = 0;
+	data.stack_a = NULL;
+	data.stack_b = NULL;
 	check_all_args(av, &data);
 	init_stacks(av, &data);
 	rank_stack(&data);
